@@ -6,7 +6,7 @@ class ReviewsApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listingID: 7
+      listingID: 7,
       reviews: []
     }
   };
