@@ -155,24 +155,25 @@ let users = [
 const populateReviews = (passedId) => {
   console.log('we are here');
   console.log(randomizer(1,250), 'random')
-  let revs = Array.apply(1, Array(randomizer(1, 250)));
-  // console.log(generateReview())
+  let revs = Array.apply(1, Array(randomizer(1, 30)));
   revs.map(rev => {
     rev = Review.create ({
       body: generateReview(),
       dateCreated: new Date(),
-      userID: randomizer(1,100),
-      listingID: randomizer(1,100),
+      userId: randomizer(1,100),
+      listingId: passedId,
       communication: randomizer(1,6),
       location: randomizer(1,6),
       checkIn: randomizer(1,6),
       cleanliness: randomizer(1,6),
       value: randomizer(1,6),
-      accuracy: randomizer(1,6)
+      accuracy: randomizer(1,6),
     });
+    // rev.rating = () => ((this.communication + this.location + this.checkIn + this.cleanliness + this.value + this.accuracy) / 6)
     // console.log(rev)
   });
-  Reviews.create({listingID: passedId, reviews: revs});
+  console.log('revs', revs)
+  Reviews.create({listingId: passedId, reviews: revs});
 }
 
 

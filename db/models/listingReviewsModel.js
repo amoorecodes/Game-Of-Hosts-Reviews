@@ -4,20 +4,21 @@ const mongoose = require('mongoose');
 const reviewSchema = mongoose.Schema({
   body: String,
   dateCreated: Date,
-  userID: Number,
-  listingID: Number,
+  userId: Number,
+  listingId: Number,
   communication: Number,
   location: Number,
   checkIn: Number,
   cleanliness: Number,
   value: Number,
-  accuracy: Number
+  accuracy: Number,
+  // rating: Number
 });
 
 const Review = mongoose.model('Review', reviewSchema);
 
 const listingReviewsSchema = mongoose.Schema({ 
-  listingID: Number,
+  listingId: Number,
   reviews: [reviewSchema]
 });
 

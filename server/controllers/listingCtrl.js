@@ -7,8 +7,9 @@ const { Reviews } = require('./../../db/models/listingReviewsModel.js');
 const reviewsCtrl = {
   fetch: (req, res) => {
     Reviews.find({listingId: 7}, (err, reviews) => {
-      console.log('reviews ', reviews);
-      res.status(200).send(reviews);
+      // console.log('reviews ', reviews);
+      let revs = reviews.splice(0, 6);
+      res.status(200).send(revs);
     });
   },
 
