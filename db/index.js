@@ -9,7 +9,7 @@ dbReviews.on('error', () => {
   console.log('connection to database failed');
 });
 dbReviews.once('open', () => {
-  populateReviews(7);
+  // populateReviews(7);
   console.log('we have successfully connected to database');
 });
 

@@ -1,14 +1,30 @@
 const mongoose = require('mongoose');
-const { Review } = require('./reviewModel');
+// const { Review } = require('./reviewModel');
 
-const listingReviewsSchema = new mongoose.Schema({ 
+const reviewSchema = mongoose.Schema({
+  body: String,
+  dateCreated: Date,
+  userID: Number,
   listingID: Number,
-  reviews: [Review]
+  communication: Number,
+  location: Number,
+  checkIn: Number,
+  cleanliness: Number,
+  value: Number,
+  accuracy: Number
 });
 
-const Reviews = new mongoose.Model('Reviews', listingReviewsSchema);
+const Review = mongoose.model('Review', reviewSchema);
+
+const listingReviewsSchema = mongoose.Schema({ 
+  listingID: Number,
+  reviews: [reviewSchema]
+});
+
+const Reviews = mongoose.model('Reviews', listingReviewsSchema);
 
 module.exports = {
-  Reviews: Reviews
+  Reviews: Reviews,
+  Review: Review
 };
 

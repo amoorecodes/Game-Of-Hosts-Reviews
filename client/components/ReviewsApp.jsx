@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import axios from 'axios';
 
 class ReviewsApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      whatever: ""
+      listingID: 7
+      reviews: []
     }
   };
+
+  fetchReviews(listingID) {
+
+  }
+
+  componentDidMount() {
+
+  }
 
   render() {
     return(
