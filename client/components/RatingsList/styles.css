@@ -1,0 +1,23 @@
+:local(.basic) {
+  background-color: red;
+  font-size: 25px;
+  color:blue;
+  align-content: center;
+}
+
+:local(.outer) {
+  align-content: center;
+}
+
+:local(.left) {
+  display: inline-block
+}
+
+:local(.right) {
+  display: inline-block;
+  /* height: 10em; */
+}
+
+/* :local(.right) {
+  float: right;
+} */

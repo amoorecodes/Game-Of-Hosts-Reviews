@@ -1,5 +1,4 @@
 const path = require('path');
-const extractText = require('extract-text-webpack-plugin');
 
 const SRC_DIR = path.resolve(__dirname, 'client');
 const BUILD_DIR = path.resolve(__dirname, 'static');
@@ -22,12 +21,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        // use: ['style-loader', 'css-loader'],
-        loader: extractText.extract('css?modules&importLoader=1&localIdentName=[name]__[local]___[hash:base64:5')
+        use: ['style-loader', 'css-loader']
       },
     ]
-  },
-  plugins: [
-    new extractText('styles.css')
-  ]
+  }
 }

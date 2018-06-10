@@ -1,0 +1,25 @@
+:local(p) {
+  float: left;
+  display: block;
+}
+
+:local(h4) {
+  display: block;
+}
+
+:local(h5) {
+  display: block;
+}
+
+:local(.avatar) {
+  
+  float: left;
+  object-fit: scale-down;
+  vertical-align: middle;
+  width: 5em;
+  height: 5em;
+  /* object-fit: fill; */
+  /* clip-path: circle(6rem at 12rem 8rem) */
+  border-radius: 50%;
+}
+

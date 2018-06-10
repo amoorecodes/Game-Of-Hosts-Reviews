@@ -1,0 +1,14 @@
+:local(.main) {
+  color: blue;
+  background-color: purple;
+  display: inline;
+}
+
+:local(.outer) {
+  float: inherit
+  /* width: 30%; */
+}
+
+:local(.star) {
+  display: inline;
+}

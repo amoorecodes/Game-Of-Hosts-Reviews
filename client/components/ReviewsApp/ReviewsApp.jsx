@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import axios from 'axios';
-import Rating from './Rating.jsx';
-import ReviewSearch from './ReviewSearch.jsx';
+import Rating from './../Rating/Rating.jsx' ;
+import ReviewSearch from './../ReviewSearch/ReviewSearch.jsx';
+import RatingsList from './../RatingsList/RatingsList.jsx';
+import ReviewsList from './../ReviewsList/ReviewsList.jsx';
+import app from './styles.css';
 
 class ReviewsApp extends Component {
   constructor(props) {
@@ -16,7 +18,14 @@ class ReviewsApp extends Component {
       cleanliness: 1,
       value: 1,
       accuracy: 1,
-      average: 1
+      average: 1,
+      user: {
+        pic: "https://a0.muscache.com/im/pictures/8810f287-340d-4681-aabf-e6e38bff7e73.jpg?aki_policy=profile_x_medium",
+        name: "aranovski"
+      }
+    };
+    this.user = {
+      
     }
     this.fetchReviews = this.fetchReviews.bind(this);
     // this.calcAverage = this.calcAverage.bind(this);
@@ -51,12 +60,6 @@ class ReviewsApp extends Component {
         })
       .catch(err => console.log('there was an error in fetching reviews ', err));
   }
-  // averageRating() {
-  //   let total = Math.round(((this.state.communication + this.state.location + this.state.checkIn + this.state.cleanliness + this.state.value + this.state.accuracy) / 6));
-  //   this.setState({
-  //     average: total
-  //   });
-  // }
 
   componentDidMount() {
     this.fetchReviews(7);
@@ -64,11 +67,15 @@ class ReviewsApp extends Component {
 
   render() {
     return(
-      <div>
+      <div className={app.app}>
         Hello. This is a review section. Take a snapshot, it would be funny in 2 weeks.
         Also, {this.state.reviews.length}
-        <Rating stars={4} count={this.state.reviews.length}/>
+        <div className={app.header}>
+        <Rating rating={4} count={this.state.reviews.length} category=" Reviews" className={app.total_reviews}/>
         <ReviewSearch />
+        </div>
+        <RatingsList {...this.state} />
+        <ReviewsList reviews={this.state.reviews} userId={this.state.user} />
       </div>
     )
   };

@@ -1,0 +1,13 @@
+:local(.search) {
+  width: 20px;
+  height: 20px;
+}
+
+:local(.main) {
+  /* float:right; */
+  display: inline-block;  
+}
+
+:local(.icon) {
+  opacity: 0.5;
+}

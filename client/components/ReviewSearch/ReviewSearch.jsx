@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {render} from 'react-dom';
+import search from './search.css';
 
 class ReviewSearch extends Component {
   constructor(props) {
@@ -11,10 +11,9 @@ class ReviewSearch extends Component {
 
   render() {
     return(
-      <div>
-        This is a Search.
+      <div className={search.main}>
         <form>
-          <img src="" />
+          <i className={`fas fa-search ${search.icon}`}></i>
           <input type="text" placeholder="Search reviews" />
         </form>
       </div>

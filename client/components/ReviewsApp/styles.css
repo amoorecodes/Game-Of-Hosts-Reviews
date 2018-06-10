@@ -1,0 +1,24 @@
+:local(.app) {
+  width: 65%;
+  margin: 0 auto;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+:local(.total_reviews) {
+  /* float: left; */
+  /* display: inline; */
+}
+
+:local(.search) {
+  float: right;
+}
+
+:local(.reviews_list) {
+  display: block
+}
+
+:local(.header:after) {
+    content: "";
+    clear: both;
+    display: table;
+}
