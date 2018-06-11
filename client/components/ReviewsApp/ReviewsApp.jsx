@@ -22,7 +22,8 @@ class ReviewsApp extends Component {
       user: {
         pic: "https://a0.muscache.com/im/pictures/8810f287-340d-4681-aabf-e6e38bff7e73.jpg?aki_policy=profile_x_medium",
         name: "aranovski"
-      }
+      },
+      searchedReviews: []
     };
     this.user = {
       
@@ -77,7 +78,11 @@ class ReviewsApp extends Component {
         <div className={app.ratings} >
         <RatingsList {...this.state} />
         </div>
-        <ReviewsList reviews={this.state.reviews} userId={this.state.user} />
+        {
+          (this.state.searchedReviews.length > 0)
+          ? (<ReviewsList reviews={this.state.searchedReviews} userId={this.state.user} />)
+          : (<ReviewsList reviews={this.state.reviews} userId={this.state.user} />)
+        }
       </div>
     )
   };
