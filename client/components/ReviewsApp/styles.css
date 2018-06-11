@@ -1,0 +1,47 @@
+:local(.app) {
+  width: 65%;
+  margin: 0 auto;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+:local(.total_reviews) {
+  /* float: left; */
+  display: inline;
+  /* width: 30%; */
+}
+
+:local(.total_reviews:after) {
+  content: "";
+  display: inline-block;
+  clear: both;
+}
+
+:local(.search) {
+  float: right;
+}
+
+:local(.reviews_list) {
+  display: block
+}
+
+/* :local(.header:after) {
+    content: "";
+    clear: both;
+    display: table;
+} */
+
+:local(.header) {
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+:local(.header:after) {
+  content:'';
+  clear: both;
+  display: table;
+  width:100%; height:100%;
+  margin-top: 20px;
+  padding-bottom: 15px;
+  margin-right:-100%;
+  border-bottom:1px solid #D8D8D8;
+}
