@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const reviewSchema = mongoose.Schema({
   body: String,
-  dateCreated: Date,
+  dateCreated: String,
   userId: Number,
   listingId: Number,
   communication: Number,

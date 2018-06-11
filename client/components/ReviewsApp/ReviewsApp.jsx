@@ -71,10 +71,12 @@ class ReviewsApp extends Component {
         Hello. This is a review section. Take a snapshot, it would be funny in 2 weeks.
         Also, {this.state.reviews.length}
         <div className={app.header}>
-        <Rating rating={4} count={this.state.reviews.length} category=" Reviews" className={app.total_reviews}/>
-        <ReviewSearch />
+        <Rating rating={4} count={this.state.reviews.length} className={app.total_reviews}/>
+        <ReviewSearch className={app.search} />
         </div>
+        <div className={app.ratings} >
         <RatingsList {...this.state} />
+        </div>
         <ReviewsList reviews={this.state.reviews} userId={this.state.user} />
       </div>
     )

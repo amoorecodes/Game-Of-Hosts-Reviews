@@ -1,13 +1,31 @@
 :local(.search) {
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 25px;
 }
 
 :local(.main) {
-  /* float:right; */
-  display: inline-block;  
+  float:right;
+  /* display: inline-block;   */
 }
 
 :local(.icon) {
   opacity: 0.5;
+  position: absolute;
+  align-content: initial ;
+  margin: 7px 0 0 7px;
+  font-size: 0.8rem;
+  /* z-index: 2; */
+}
+
+:local(.input) {
+  max-height: 35px;
+  max-width: 190px;
+  border: 1px solid #DBDBDB;
+  border-radius: 3px;
+  border-color: darkgrey;
+  padding: 5px 10px 5px 25px;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  align-content: initial;
+
 }

@@ -5,12 +5,14 @@ const Rating = (props) => {
     // let stars = Array.apply("hello", 5);
     let stars = [1,2,3,4,5]
     return (
+      
       <div className={rating.outer}>
-      {props.count}{props.category}
+      {props.count && props.count + " Reviews "}
+      {props.category}
         <div className={rating.main} >
         {stars.map((star, index) => {
           // console.log('props',props, 'index', index, 'test', (index<props.stars))
-          return index < props.rating ? <div className={rating.star} key={index}>★</div> : <div className={rating.star} key={index}>☆</div>
+        return index < props.rating ? <span className={rating.filled_star} ><i key={index} class="fas fa-star"></i></span> : <span className={rating.empty_star} ><i key={index} class="fas fa-star"></i></span>
         })}
         </div>
       </div>
@@ -18,3 +20,9 @@ const Rating = (props) => {
 }
 
 export default Rating; 
+
+
+{/*
+
+*/}
+ {/*<div className={rating.star} key={index}>☆</div>*/} 

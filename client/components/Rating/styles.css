@@ -1,14 +1,22 @@
+
+:local(.outer) {
+  float: left;
+  /* width: 20%; */
+}
+
 :local(.main) {
-  color: blue;
-  background-color: purple;
+  float: right;
+  /* width: auto; */
+  /* display: inline-block; */
+  /* position: relative right; */
+}
+
+:local(.filled_star) {
+  color: #378287;
   display: inline;
 }
 
-:local(.outer) {
-  float: inherit
-  /* width: 30%; */
-}
-
-:local(.star) {
+:local(.empty_star) {
+  color: #D8D8D8;
   display: inline;
 }

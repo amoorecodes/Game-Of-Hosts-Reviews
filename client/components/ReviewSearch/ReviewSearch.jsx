@@ -14,7 +14,7 @@ class ReviewSearch extends Component {
       <div className={search.main}>
         <form>
           <i className={`fas fa-search ${search.icon}`}></i>
-          <input type="text" placeholder="Search reviews" />
+          <input className={search.input} type="text" placeholder="Search reviews" />
         </form>
       </div>
     )
