@@ -29,6 +29,7 @@ class ReviewsApp extends Component {
       
     }
     this.fetchReviews = this.fetchReviews.bind(this);
+    this.searchReviews = this.searchReviews.bind(this);
     // this.calcAverage = this.calcAverage.bind(this);
     // this.averageRating = this.averageRating.bind(this);
   };
@@ -60,10 +61,24 @@ class ReviewsApp extends Component {
           .then(() => {console.log('final state in fetch ', this.state)})
         })
       .catch(err => console.log('there was an error in fetching reviews ', err));
-  }
+  };
+
+  searchReviews(event) {
+    event.preventDefault();
+    let searchResults = this.state.reviews.filter(review => {
+      return review.body.includes(event);
+    });
+
+    console.log('query', event)
+
+    this.setState({
+      searchedReviews: searchResults
+    });
+  };
 
   componentDidMount() {
-    this.fetchReviews(7);
+    (this.state.reviews.length === 0) && this.fetchReviews(7);
+    console.log(this.state.searchedReviews);
   };
 
   render() {
@@ -73,7 +88,7 @@ class ReviewsApp extends Component {
         Also, {this.state.reviews.length}
         <div className={app.header}>
         <Rating rating={4} count={this.state.reviews.length} className={app.total_reviews}/>
-        <ReviewSearch className={app.search} />
+        <ReviewSearch className={app.search} filter={this.searchReviews} />
         </div>
         <div className={app.ratings} >
         <RatingsList {...this.state} />
