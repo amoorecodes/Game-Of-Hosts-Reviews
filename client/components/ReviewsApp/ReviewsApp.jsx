@@ -73,12 +73,14 @@ class ReviewsApp extends Component {
     });
   };
 
+  clearSearch() {
+    this.setState({
+      searchedReviews: []
+    });
+  };
+
   componentDidMount(event) {
-    // event.preventDefault();
-    // (this.state.reviews.length === 0) && this.fetchReviews(7);
-    if (this.state.reviews.length === 0) {
-      this.fetchReviews(7);
-    }
+    (this.state.reviews.length === 0) && this.fetchReviews(7);
     console.log('searched', this.state.searchedReviews);
   };
 
@@ -99,11 +101,25 @@ class ReviewsApp extends Component {
         <Rating rating={4} count={this.state.reviews.length} className={app.total_reviews}/>
         <ReviewSearch className={app.search} filter={this.searchReviews} />
         </div>
-        <div className={app.ratings} >
-        <RatingsList {...this.state} />
-        </div>
         {
-          (this.state.searchedReviews.length > 0) ? (<ReviewsList reviews={this.state.searchedReviews} userId={this.state.user} />) : (<ReviewsList reviews={this.state.reviews} userId={this.state.user} />)
+          (this.state.searchedReviews.length > 0) 
+          ? 
+          (<div>
+            <div className={app.searchBar}>
+              <span>{this.state.searchedReviews.length} guests have mentioned <b>"{this.state.query}"</b></span>
+              <a href="" onClick={this.clearSearch} >Back to all reviews</a>
+            </div>
+            <ReviewsList reviews={this.state.searchedReviews} userId={this.state.user} />
+          </div>) 
+          : 
+          (
+            <div>
+            <div className={app.ratings} >
+            <RatingsList {...this.state} />
+            </div>
+            <ReviewsList reviews={this.state.reviews} userId={this.state.user} />
+            </div>
+          )
         }
       </div>
     )
