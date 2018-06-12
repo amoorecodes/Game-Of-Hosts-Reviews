@@ -23,15 +23,12 @@ class ReviewsApp extends Component {
         pic: "https://a0.muscache.com/im/pictures/8810f287-340d-4681-aabf-e6e38bff7e73.jpg?aki_policy=profile_x_medium",
         name: "aranovski"
       },
-      searchedReviews: []
+      searchedReviews: [],
+      query: ''
     };
-    this.user = {
-      
-    }
     this.fetchReviews = this.fetchReviews.bind(this);
     this.searchReviews = this.searchReviews.bind(this);
-    // this.calcAverage = this.calcAverage.bind(this);
-    // this.averageRating = this.averageRating.bind(this);
+    // this.updateInput = this.updateInput.bind(this);
   };
 
   fetchReviews(listingId) {
@@ -40,7 +37,6 @@ class ReviewsApp extends Component {
       this.setState({
         reviews: data.data
         });
-        // console.log('state inside fetch app', data.data);
       }))
       .then(() => {
         axios.get(`/api/reviews/avg`)
@@ -65,21 +61,34 @@ class ReviewsApp extends Component {
 
   searchReviews(event) {
     event.preventDefault();
+    console.log('search input', event.target.value)
     let searchResults = this.state.reviews.filter(review => {
-      return review.body.includes(event);
+      return review.body.includes(event.target.value);
     });
 
-    console.log('query', event)
+    console.log('query', this.state)
 
     this.setState({
       searchedReviews: searchResults
     });
   };
 
-  componentDidMount() {
-    (this.state.reviews.length === 0) && this.fetchReviews(7);
-    console.log(this.state.searchedReviews);
+  componentDidMount(event) {
+    // event.preventDefault();
+    // (this.state.reviews.length === 0) && this.fetchReviews(7);
+    if (this.state.reviews.length === 0) {
+      this.fetchReviews(7);
+    }
+    console.log('searched', this.state.searchedReviews);
   };
+
+  // updateInput(e) {
+  //   e.preventDefault();
+  //   this.setState({
+  //     query: e
+  //   });
+  //   console.log('our input', e,'and state', this.state)
+  // };
 
   render() {
     return(
@@ -94,9 +103,7 @@ class ReviewsApp extends Component {
         <RatingsList {...this.state} />
         </div>
         {
-          (this.state.searchedReviews.length > 0)
-          ? (<ReviewsList reviews={this.state.searchedReviews} userId={this.state.user} />)
-          : (<ReviewsList reviews={this.state.reviews} userId={this.state.user} />)
+          (this.state.searchedReviews.length > 0) ? (<ReviewsList reviews={this.state.searchedReviews} userId={this.state.user} />) : (<ReviewsList reviews={this.state.reviews} userId={this.state.user} />)
         }
       </div>
     )
