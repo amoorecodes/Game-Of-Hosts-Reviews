@@ -28,6 +28,7 @@ class ReviewsApp extends Component {
     };
     this.fetchReviews = this.fetchReviews.bind(this);
     this.searchReviews = this.searchReviews.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
     // this.updateInput = this.updateInput.bind(this);
   };
 
@@ -91,7 +92,7 @@ class ReviewsApp extends Component {
   //   });
   //   console.log('our input', e,'and state', this.state)
   // };
-
+  
   render() {
     return(
       <div className={app.app}>
