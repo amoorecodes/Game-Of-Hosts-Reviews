@@ -62,12 +62,12 @@ class ReviewsApp extends Component {
 
   searchReviews(event) {
     event.preventDefault();
-    console.log('search input', event.target.value)
+    // console.log('search input', event.target.value)
     let searchResults = this.state.reviews.filter(review => {
       return review.body.includes(event.target.value);
     });
 
-    console.log('query', this.state)
+    // console.log('query', this.state)
 
     this.setState({
       searchedReviews: searchResults
@@ -82,7 +82,7 @@ class ReviewsApp extends Component {
 
   componentDidMount(event) {
     (this.state.reviews.length === 0) && this.fetchReviews(7);
-    console.log('searched', this.state.searchedReviews);
+    // console.log('searched', this.state.searchedReviews);
   };
 
   // updateInput(e) {
