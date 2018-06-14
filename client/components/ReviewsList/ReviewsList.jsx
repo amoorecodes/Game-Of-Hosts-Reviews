@@ -13,7 +13,7 @@ const ReviewsList = (props) => {
   // render() {
     return(
       <div>
-        {console.log('here;' , props.reviews)}
+        {/* {console.log('here;' , props.reviews)} */}
         {props.reviews.map((review, index) => {
 
           // {console.log('review', this.state.reviews)} 

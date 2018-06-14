@@ -5,16 +5,30 @@ import list from './styles.css';
 const RatingsList = (props) => {
   return(
     <div className={list.outer} >
-      <span className={list.left} >
-      <Rating rating={props.accuracy} category="Accuracy" />
-      <Rating rating={props.communication} category="Communication" />
-      <Rating rating={props.cleanliness} category="Cleanliness" />
-      </span>
-      <span className={list.right} > 
-      <Rating rating={props.location} category="Location" />
-      <Rating rating={props.checkIn} category="CheckIn" />
-      <Rating rating={props.value} category="Value" />
-      </span>
+      <div className={list.left} >
+        <div className={list.left_cat}>
+          <div>Accuracy</div>
+          <div>Communication</div>
+          <div>Cleanliness</div>
+        </div>
+        <div className={list.left_rating}>
+          <Rating rating={props.accuracy} />
+          <Rating rating={props.communication} />
+          <Rating rating={props.cleanliness} />
+        </div>
+      </div>
+      <div className={list.right} > 
+        <div className={list.right_cat}>
+          <div>Location</div>
+          <div>Check-In</div>
+          <div>Value</div>
+        </div>
+        <div className={list.right_rating}>
+          <Rating rating={props.location} />
+          <Rating rating={props.checkIn} />
+          <Rating rating={props.value} />
+        </div>
+      </div>
     </div>
   )
 }

@@ -28,6 +28,7 @@ class ReviewsApp extends Component {
     };
     this.fetchReviews = this.fetchReviews.bind(this);
     this.searchReviews = this.searchReviews.bind(this);
+    this.clearSearch = this.clearSearch.bind(this);
     // this.updateInput = this.updateInput.bind(this);
   };
 
@@ -61,12 +62,12 @@ class ReviewsApp extends Component {
 
   searchReviews(event) {
     event.preventDefault();
-    console.log('search input', event.target.value)
+    // console.log('search input', event.target.value)
     let searchResults = this.state.reviews.filter(review => {
       return review.body.includes(event.target.value);
     });
 
-    console.log('query', this.state)
+    // console.log('query', this.state)
 
     this.setState({
       searchedReviews: searchResults
@@ -81,7 +82,7 @@ class ReviewsApp extends Component {
 
   componentDidMount(event) {
     (this.state.reviews.length === 0) && this.fetchReviews(7);
-    console.log('searched', this.state.searchedReviews);
+    // console.log('searched', this.state.searchedReviews);
   };
 
   // updateInput(e) {
@@ -91,7 +92,7 @@ class ReviewsApp extends Component {
   //   });
   //   console.log('our input', e,'and state', this.state)
   // };
-
+  
   render() {
     return(
       <div className={app.app}>
