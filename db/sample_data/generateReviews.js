@@ -163,7 +163,7 @@ const populateReviews = (passedId) => {
       body: generateReview(),
       dateCreated: date(),
       userId: randomizer(1,100),
-      listingId: passedId,
+      listing_id: passedId,
       communication: randomizer(1,6),
       location: randomizer(1,6),
       checkIn: randomizer(1,6),
@@ -175,10 +175,11 @@ const populateReviews = (passedId) => {
     // console.log(rev)
   });
   console.log('revs', date)
-  // Reviews.create({listingId: passedId, reviews: revs});
+  // Reviews.create({listing_id: passedId, reviews: revs});
 }
 
 
 module.exports = {
-  populateReviews: populateReviews
+  populateReviews: populateReviews,
+  randomizer: randomizer
 };

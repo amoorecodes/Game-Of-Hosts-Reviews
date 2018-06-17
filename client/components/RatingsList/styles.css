@@ -12,6 +12,7 @@
 :local(.left) {
   flex-grow: 1;
   display: flex;
+  padding-right: 10px; 
 }
 
 :local(.left_cat) {
@@ -26,6 +27,7 @@
 :local(.right) {
   flex-grow: 1;
   display: flex;
+  padding-left: 10px;
   /* height: 10em; */
 }
 

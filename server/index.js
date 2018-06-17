@@ -1,6 +1,7 @@
 const express = require ('express');
 const parser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 const { router } = require('./router');
 require('./../db');
@@ -8,7 +9,12 @@ require('./../db');
 const PORT = 3000;
 const App = express();
 
+const corsOptions = {
+  origin: "https://amazonaws.com", 
+  optionsSuccessStatus: 200
+}
 
+App.use(cors(corsOptions));
 App.use(parser.json());
 App.use(parser.urlencoded({ extended: true }));
 App.use(express.static(path.join(__dirname, '../static')));

@@ -6,17 +6,17 @@ const { Review } = require('./../../db/models/listingReviewsModel.js');
 
 const reviewsCtrl = {
   fetch: (req, res) => {
-    Review.find({listingId: 7}, (err, reviews) => {
-      // console.log('reviews ', reviews);
-      // let revs = reviews.splice(0, 6);
+    // Review.find({listing_id: parseInt(req.query.listing_id)}, (err, reviews) => {
+    Review.find({listing_id: 1}, (err, reviews) => {
       res.status(200).send(reviews);
     });
   },
 
   findAverage: (req,res) => {
+
     Review.aggregate([
-      {$match: {listingId: 7}},
-      {$group: {_id: {"listingId": "$listingId"}, 
+      {$match: {listing_id: 1}},
+      {$group: {_id: {"listing_id": "$listing_id"}, 
                 averageCom: { $avg: "$communication"},
                 averageLoc: { $avg: "$location"},
                 averageCheck: { $avg: "$checkIn"},
@@ -25,15 +25,14 @@ const reviewsCtrl = {
                 averageAcc: { $avg: "$accuracy"}
             }}], (err, results) => {
         if (err) console.log('error in aggregation', err);
-        // console.log('aggregation res ', results);
         res.status(200).send(results);
       })
     // Review.find()
-    //       .select({listingId: 7})
+    //       .select({listing_id: 7})
     //       .
   }
   // populate: (req, res) => {
-  //   Reviews.insertMany({listingId: [req.query.listingId], reviews: req.query.reviews}, (err) => {
+  //   Reviews.insertMany({listing_id: [req.query.listing_id], reviews: req.query.reviews}, (err) => {
   //     if (err) {console.log('There was an error inserting bunch of reviews ');}
   //     else { console.log('we have succesfully populated the database '); };
   //   });

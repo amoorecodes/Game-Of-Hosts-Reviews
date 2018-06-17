@@ -5,20 +5,19 @@ const reviewSchema = mongoose.Schema({
   body: String,
   dateCreated: String,
   userId: Number,
-  listingId: Number,
+  listing_id: Number,
   communication: Number,
   location: Number,
   checkIn: Number,
   cleanliness: Number,
   value: Number,
   accuracy: Number,
-  // rating: Number
 });
 
 const Review = mongoose.model('Review', reviewSchema);
 
 // const listingReviewsSchema = mongoose.Schema({ 
-//   listingId: Number,
+//   listing_id: Number,
 //   reviews: [reviewSchema]
 // });
 

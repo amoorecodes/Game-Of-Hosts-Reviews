@@ -10,7 +10,7 @@ class ReviewsApp extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listingId: 7,
+      listing_id: 1,
       reviews: [],
       communication: 1,
       location: 1,
@@ -32,15 +32,15 @@ class ReviewsApp extends Component {
     // this.updateInput = this.updateInput.bind(this);
   };
 
-  fetchReviews(listingId) {
-    axios.get(`/api/reviews?listingId=${listingId}`)
+  fetchReviews(listing_id) {
+    axios.get(`http://ec2-52-55-211-25.compute-1.amazonaws.com/api/reviews?listing_id=${listing_id}`)
     .then(((data) => {
       this.setState({
         reviews: data.data
         });
       }))
       .then(() => {
-        axios.get(`/api/reviews/avg`)
+        axios.get(`http://ec2-52-55-211-25.compute-1.amazonaws.com/api/reviews/avg`)
           .then((data) => {
             const avg = data.data[0];
             const total = (avg.averageAcc + avg.averageCheck + avg.averageClean + avg.averageCom + avg.averageLoc + avg.averageValue)/6
@@ -74,7 +74,8 @@ class ReviewsApp extends Component {
     });
   };
 
-  clearSearch() {
+  clearSearch(event) {
+    event.preventDefault();
     this.setState({
       searchedReviews: []
     });
@@ -96,19 +97,21 @@ class ReviewsApp extends Component {
   render() {
     return(
       <div className={app.app}>
-        Hello. This is a review section. Take a snapshot, it would be funny in 2 weeks.
-        Also, {this.state.reviews.length}
         <div className={app.header}>
-        <Rating rating={4} count={this.state.reviews.length} className={app.total_reviews}/>
-        <ReviewSearch className={app.search} filter={this.searchReviews} />
+          <div className={app.overall_rating}>
+          <Rating rating={4} count={this.state.reviews.length} className={app.total_reviews}/>
+          </div>
+          <div className={app.search_window}>
+          <ReviewSearch className={app.search} filter={this.searchReviews} />
+          </div>
         </div>
         {
           (this.state.searchedReviews.length > 0) 
           ? 
-          (<div>
+          (<div>  
             <div className={app.searchBar}>
               <span>{this.state.searchedReviews.length} guests have mentioned <b>"{this.state.query}"</b></span>
-              <a href="" onClick={this.clearSearch} >Back to all reviews</a>
+              <a href="" onClick={(e) => this.clearSearch(e)} >Back to all reviews</a>
             </div>
             <ReviewsList reviews={this.state.searchedReviews} userId={this.state.user} />
           </div>) 
