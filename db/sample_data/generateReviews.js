@@ -96,61 +96,8 @@ const generateReview = () => {
   :
   randomReview(sampleData.goodReview)
   )
-
 };
 
-let users = [
-"Marjory",  
-"Nicki",  
-"Trevor",  
-"Lanora",  
-"Nedra",  
-"Karleen",  
-"Trinity",  
-"Kelle",  
-"Jere",  
-"Leonida",  
-"Malinda",  
-"Hanh",  
-"Josette",  
-"Marivel",  
-"Huong",  
-"Freeda",  
-"Dwight",  
-"Carolann",  
-"Gregg",  
-"Jamila",  
-"Philomena",  
-"Dortha",  
-"Celsa",  
-"Josue",  
-"Reatha",  
-"Leanna" , 
-"Arnette",  
-"Teodoro" , 
-"Kari"  ,
-"Edyth"  ,
-"Brigitte",  
-"Roselle",  
-"Kathyrn",  
-"Nicol",  
-"Marlana",  
-"Joslyn",  
-"Stephan",  
-"Jacquline",  
-"Beaulah",  
-"Lance",  
-"Jules",  
-"Hortensia",  
-"Flo",  
-"Sierra",  
-"Angelo", 
-"Milagro",  
-"Bonny",  
-"Emile", 
-"Tenisha",  
-"Hilda"  
-]
 
 const date = () => new Date().toDateString().slice(4);
 
@@ -172,9 +119,7 @@ const populateReviews = (passedId) => {
       accuracy: randomizer(1,6),
     }));
     // rev.rating = () => ((this.communication + this.location + this.checkIn + this.cleanliness + this.value + this.accuracy) / 6)
-    // console.log(rev)
   });
-  console.log('revs', date)
   // Reviews.create({listing_id: passedId, reviews: revs});
 }
 

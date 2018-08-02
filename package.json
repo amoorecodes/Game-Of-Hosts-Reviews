@@ -50,6 +50,7 @@
     "nodemon": "^1.17.5",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "read-more-react": "^1.0.6",
     "style-loader": "^0.21.0"
   },
   "devDependencies": {

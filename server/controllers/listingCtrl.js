@@ -12,7 +12,7 @@ const reviewsCtrl = {
     });
   },
 
-  findAverage: (req,res) => {
+  findAverage: (req, res) => {
 
     Review.aggregate([
       {$match: {listing_id: 1}},
@@ -29,7 +29,6 @@ const reviewsCtrl = {
       })
     // Review.find()
     //       .select({listing_id: 7})
-    //       .
   }
   // populate: (req, res) => {
   //   Reviews.insertMany({listing_id: [req.query.listing_id], reviews: req.query.reviews}, (err) => {

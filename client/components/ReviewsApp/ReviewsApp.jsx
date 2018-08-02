@@ -33,14 +33,18 @@ class ReviewsApp extends Component {
   };
 
   fetchReviews(listing_id) {
-    axios.get(`http://ec2-52-55-211-25.compute-1.amazonaws.com/api/reviews?listing_id=${listing_id}`)
+    // ==== deployed path ====
+    // axios.get(`http://ec2-52-55-211-25.compute-1.amazonaws.com/api/reviews?listing_id=${listing_id}`)
+    axios.get(`/api/reviews?listing_id=${listing_id}`)
     .then(((data) => {
       this.setState({
         reviews: data.data
         });
       }))
       .then(() => {
-        axios.get(`http://ec2-52-55-211-25.compute-1.amazonaws.com/api/reviews/avg`)
+        // ==== deployed path ====
+        // axios.get(`http://ec2-52-55-211-25.compute-1.amazonaws.com/api/reviews/avg`)
+        axios.get(`/api/reviews/avg`)
           .then((data) => {
             const avg = data.data[0];
             const total = (avg.averageAcc + avg.averageCheck + avg.averageClean + avg.averageCom + avg.averageLoc + avg.averageValue)/6
@@ -62,12 +66,9 @@ class ReviewsApp extends Component {
 
   searchReviews(event) {
     event.preventDefault();
-    // console.log('search input', event.target.value)
     let searchResults = this.state.reviews.filter(review => {
       return review.body.includes(event.target.value);
     });
-
-    // console.log('query', this.state)
 
     this.setState({
       searchedReviews: searchResults
@@ -83,16 +84,7 @@ class ReviewsApp extends Component {
 
   componentDidMount(event) {
     (this.state.reviews.length === 0) && this.fetchReviews(7);
-    // console.log('searched', this.state.searchedReviews);
   };
-
-  // updateInput(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     query: e
-  //   });
-  //   console.log('our input', e,'and state', this.state)
-  // };
   
   render() {
     return(

@@ -1,14 +1,10 @@
 
 :local(.outer) {
   float: left;
-  /* width: 20%; */
 }
 
 :local(.main) {
   float: right;
-  /* width: auto; */
-  /* display: inline-block; */
-  /* position: relative right; */
 }
 
 :local(.filled_star) {
