@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Rating from './../Rating/Rating.jsx';
 import list from './styles.css';
 
+
 const RatingsList = (props) => {
   return(
     <div className={list.outer} >
