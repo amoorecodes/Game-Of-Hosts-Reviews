@@ -1,16 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-  <script src="https://use.fontawesome.com/c25c060a05.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <title>Game Of Hosts</title>
-</head>
-<body>
-  <div id="reviews"></div>
-  <script src="bundle.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://s3-us-west-1.amazonaws.com/listing-info/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+    <script src="https://use.fontawesome.com/c25c060a05.js"></script>
+    <title>Game Of Hosts</title>
+  </head>
+  <body id="proxy">
+    <div id="photos"><script src="./photo_bundle.js"></script></div>
+    <div id="listing_info">
+      <script src="https://s3-us-west-1.amazonaws.com/listing-info/bundle.js"></script>
+    </div>
+    <div id="reviews"><script src="./bundle.js"></script></div>
+    <div id="host">
+      <script src="https://s3-us-west-1.amazonaws.com/airbnb-host-location-component/bundle.js"></script>
+    </div>
+  </body>
 </html>

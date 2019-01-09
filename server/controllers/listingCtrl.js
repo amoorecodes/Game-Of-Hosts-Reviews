@@ -7,7 +7,7 @@ const { Review } = require('./../../db/models/listingReviewsModel.js');
 const reviewsCtrl = {
   fetch: (req, res) => {
     // Review.find({listing_id: parseInt(req.query.listing_id)}, (err, reviews) => {
-    Review.find({listing_id: 1}, (err, reviews) => {
+    Review.find({listing_id: 5}, (err, reviews) => {
       res.status(200).send(reviews);
     });
   },
@@ -15,7 +15,7 @@ const reviewsCtrl = {
   findAverage: (req, res) => {
 
     Review.aggregate([
-      {$match: {listing_id: 1}},
+      {$match: {listing_id: 5}},
       {$group: {_id: {"listing_id": "$listing_id"}, 
                 averageCom: { $avg: "$communication"},
                 averageLoc: { $avg: "$location"},

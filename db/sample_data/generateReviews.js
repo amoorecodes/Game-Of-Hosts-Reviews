@@ -103,7 +103,6 @@ const date = () => new Date().toDateString().slice(4)
 
 // Tool to populate database for testing
 const populateReviews = passedId => {
-  console.log('we are here')
   console.log(randomizer(1, 250), 'random')
   let revs = Array.apply(1, Array(randomizer(1, 30)))
   revs.map(rev => {
